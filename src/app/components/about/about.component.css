@@ -1,0 +1,11 @@
+#banner{
+    height: 400px;
+    width: 100%;    
+}
+#acercaDe{
+    background-color: lightslategray;
+    padding: 20px;    
+    border-color: black;
+    border-width: 10px;
+    margin: 10px;    
+}
