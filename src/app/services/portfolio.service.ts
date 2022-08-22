@@ -10,6 +10,7 @@ export class PortfolioService {
   constructor(private http: HttpClient) { }
   
   obtenerDatos():Observable<any>{
-    return this.http.get('json');
+    console.log('corriendooo');    
+    return this.http.get('assets/data/data.json');
   }
 }
