@@ -3,9 +3,11 @@
         <img src="../../../assets/LogoAP.png"  class="img-fluid float-start" alt="" id="logoap">
     </div>                
     <div class="col-9">    
-        <button type="button" class="btn btn-outline-light float-end">Login</button>
+        <button type="button" class="btn btn-outline-light float-end"(click)="login()" *ngIf="!isLogged">Login</button>
+        <button type="button" class="btn btn-outline-light float-end"(click)="onLogOut()" *ngIf="isLogged">Logout</button>
         <a href="https://github.com/FerreiraLucasL"> <img src="../../../assets/Github.png" class="float-end" alt=""></a>"
-        <a href=""> <img src="../../../assets/LinkedIn.png" class="float-end " alt=""></a>"        
-        <a href="https://wa.me/5493764332569"> <img src="../../../assets/Wp.png" class="float-end " id="wplogo" alt=""></a>"
+        <a href="https://www.linkedin.com/in/lucas-leandro-ferreira-gassmann-292099226/"> <img src="../../../assets/LinkedIn.png" class="float-end " alt=""></a>"        
+        <a href="https://wa.me/5493764332569"> <img src="../../../assets/Wp.png" class="float-end " id="wplogo" alt=""></a>"        
     </div>
+
 </div>

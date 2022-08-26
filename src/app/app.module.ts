@@ -10,6 +10,10 @@ import { HardSoftSkillsComponent } from './components/hard-soft-skills/hard-soft
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -20,13 +24,16 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ExperienceComponent,
     EducationComponent,
     HardSoftSkillsComponent,
-    ProyectsComponent
+    ProyectsComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
