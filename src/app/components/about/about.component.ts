@@ -9,7 +9,7 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 export class AboutComponent implements OnInit {
   miPortfolio:any;
   constructor(private datosPorfolio:PortfolioService) { }
-
+    URL = 'http://localhost:8080/persona'
   ngOnInit(): void {
 
     this.datosPorfolio.obtenerDatos().subscribe(data=>{
