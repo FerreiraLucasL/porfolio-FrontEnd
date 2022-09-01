@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
+import { Experience } from 'src/app/model/experience';
+import { ExperienceService } from 'src/app/services/experience.service';
+import { TokenService } from 'src/app/services/token.service';
 
 
 @Component({
@@ -8,16 +10,19 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
-  miPortfolio:any;
+  exp: Experience[] = [];
 
-  constructor(private datosPorfolio:PortfolioService) { }
+  constructor(private expServ : ExperienceService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    this.cargarExperiencias();
+  }
 
-    this.datosPorfolio.obtenerDatos().subscribe(data=>{
-      console.log(data);
-      this.miPortfolio=data;
-      });
+
+  cargarExperiencias(): void {
+    this.expServ.getExperiencia().subscribe(data => {this.exp = data;})  
+    console.log(this.exp);
   }
 
 }
+

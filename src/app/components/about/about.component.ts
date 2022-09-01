@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
-
+import { persona } from 'src/app/model/persona';
+import { PersonaService } from 'src/app/services/persona.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  miPortfolio:any;
-  constructor(private datosPorfolio:PortfolioService) { }
+  persona : persona = new persona("","","","","");
+  constructor(public personaService:PersonaService) {}
 
-  ngOnInit(): void {
 
-    this.datosPorfolio.obtenerDatos().subscribe(data=>{
-      this.miPortfolio=data;
-      });
+ngOnInit(): void {
+    this.personaService.getPersona().subscribe(data => this.persona = data);  
+    console.log(this.persona);
 
   }
-
+  
 
 }
