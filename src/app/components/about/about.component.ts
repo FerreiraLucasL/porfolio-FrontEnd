@@ -8,13 +8,19 @@ import { PersonaService } from 'src/app/services/persona.service';
 })
 export class AboutComponent implements OnInit {
   persona : persona = new persona("","","","","");
+  pers: any;
   constructor(public personaService:PersonaService) {}
 
 
 ngOnInit(): void {
-    this.personaService.getPersona().subscribe(data => this.persona = data);  
-    console.log(this.persona);
 
+    this.personaService.getPersona().subscribe(data => {
+      this.pers = data;
+      console.log(this.pers);
+      this.persona = this.pers;
+      console.log(this.persona);
+    });  
+   
   }
   
 
