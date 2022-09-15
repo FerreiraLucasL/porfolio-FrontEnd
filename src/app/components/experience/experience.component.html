@@ -1,16 +1,13 @@
-<div class="row rounded-5" id="experiencia" *ngFor="let exp of experiences">
-    <div class="col-3">
-        <p>nombre: {{exp.experienciaNombre}}</p>
+<div class="row rounded-5" id="experiencia">
+    <h1>Experiencia Laboral: </h1> <br>
+    <div class="col-7" *ngFor="let exp of experiences">
+        <ul>
+            <br>
+            <li>
+                <h3> {{exp.experienciaNombre}}</h3>
+                <h4> {{exp.experienciaLugar}}</h4>
+                <h5> Desde: {{exp.experienciaAnios}} durante: {{exp.experienciaTiempo}} </h5>
+            </li>
+        </ul>
     </div>
-    <div class="col-3">
-        {{exp.experienciaLugar}}
-    </div>
-    <div class="col-3">
-        {{exp.experienciaTiempo}}
-    </div>
-    <div class="col-3">
-        {{exp.experienciaAnios}}
-    </div>
-
-</div>    
-
+</div>
