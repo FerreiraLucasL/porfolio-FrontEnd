@@ -1,36 +1,16 @@
-<div class="row rounded-5" id="experiencia">
-    <div class="col-7">        
-        <h1>Experiencia Laboral</h1>        <br>
-    <div>
-        <table class="table" > 
-            <tbody>
-             <tr *ngFor="let Experience of exp">
-                <td>{{Experience.expNombre}}</td>
-                <td>{{Experience.expLugar}}</td>
-                <td>{{Experience.expTiempo}}</td>
-                <td>{{Experience.expAnios}}</td>
-            </tr>
-        </tbody>
-        </table>
-        </div>
-
+<div class="row rounded-5" id="experiencia" *ngFor="let exp of experiences">
+    <div class="col-3">
+        <p>nombre: {{exp.experienciaNombre}}</p>
     </div>
+    <div class="col-3">
+        {{exp.experienciaLugar}}
+    </div>
+    <div class="col-3">
+        {{exp.experienciaTiempo}}
+    </div>
+    <div class="col-3">
+        {{exp.experienciaAnios}}
+    </div>
+
 </div>    
 
-       <!--  
-        
-            <ul>               
-                <li><h3> Operador de sistema y soporte IT</h3>                    
-                    <h4> Casa Mariela - Encarnacion Paraguay</h4>
-                    <h5> 1 año + 6 meses (dic-2010) (mayo-2012)</h5>
-                    
-                </li>     <br>           
-                <li><h3> Técnico en telefonia movil y auxiliar administrativo</h3>
-                    <h4> Alta Telefonia - Posadas Argentina</h4>
-                    <h5> 6 años (2012) (2016) + (2020) (2022) </h5>
-                </li>         <br>            
-                <li><h3> Técnico en telefonia movil</h3>
-                    <h4> Por cuenta propia - Posadas Argentina</h4>
-                    <h5> 2 años (2018) (2020)</h5>                    
-                </li>    <br>
-            </ul>    -->
