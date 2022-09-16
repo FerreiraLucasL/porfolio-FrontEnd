@@ -2,17 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Experience } from '../model/experience';
+import { HardSoftSkill } from '../model/hard-soft-skill';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExperienceService {
+export class HardSoftSkillService {
   private apiServerUrl=environment.apiBaseUrl;
-  
+
+
   constructor(private http: HttpClient) { }
 
-  public getExperiences(): Observable<Experience[]>{  
-    return this.http.get<Experience[]>(`${this.apiServerUrl}experiencia/get`);
+  public getSkills(): Observable<HardSoftSkill[]>{  
+    return this.http.get<HardSoftSkill[]>(`${this.apiServerUrl}hardsoftskill/get`);
   }
 }

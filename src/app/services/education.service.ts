@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Experience } from '../model/experience';
+import { Education } from '../model/education';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExperienceService {
+export class EducationService {
   private apiServerUrl=environment.apiBaseUrl;
-  
+
   constructor(private http: HttpClient) { }
 
-  public getExperiences(): Observable<Experience[]>{  
-    return this.http.get<Experience[]>(`${this.apiServerUrl}experiencia/get`);
+  public getEducations(): Observable<Education[]>{  
+    return this.http.get<Education[]>(`${this.apiServerUrl}educacion/get`);    
   }
 }

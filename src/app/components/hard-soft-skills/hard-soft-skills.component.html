@@ -1,100 +1,29 @@
-<div class="row rounded-5" id="habilidades">
-  <div class="col">
-    <circle-progress
-      [percent]="90"
-      [radius]="90"
-      [showUnits]="false"
-      [outerStrokeWidth]="16"
-      [innerStrokeWidth]="8"
-      [outerStrokeColor]="'blue'"
-      [innerStrokeColor]="'green'"
-      [animation]="true"
-      [animationDuration]="300"
-      [title]="'BackEnd'"      
-      [titleFontSize]="'15'"
-      [titleColor]="'black'"
-      [showSubtitle]="false"
-    ></circle-progress>
-
-    <circle-progress
-    [percent]="80"
-    [radius]="90"
-    [showUnits]="false"
-    [outerStrokeWidth]="16"
-    [innerStrokeWidth]="8"
-    [outerStrokeColor]="'blue'"
-    [innerStrokeColor]="'green'"
-    [animation]="true"
-    [animationDuration]="300"
-    [title]="'FrontEnd'"      
-    [titleFontSize]="'15'"
-    [titleColor]="'black'"
-    [showSubtitle]="false"
-  ></circle-progress>
-
-  <circle-progress
-  [percent]="100"
-  [radius]="90"
-  [showUnits]="false"
-  [outerStrokeWidth]="16"
-  [innerStrokeWidth]="8"
-  [outerStrokeColor]="'blue'"
-  [innerStrokeColor]="'green'"
-  [animation]="true"
-  [animationDuration]="300"
-  [title]="'Resolucion de problemas'"      
-  [titleFontSize]="'15'"
-  [titleColor]="'black'"
-  [showSubtitle]="false"
-></circle-progress>
-
-<circle-progress
-  [percent]="100"
-  [radius]="90"
-  [showUnits]="false"
-  [outerStrokeWidth]="16"
-  [innerStrokeWidth]="8"
-  [outerStrokeColor]="'blue'"
-  [innerStrokeColor]="'green'"
-  [animation]="true"
-  [animationDuration]="300"
-  [title]="'Trabajo en Equipo'"      
-  [titleFontSize]="'15'"
-  [titleColor]="'black'"
-  [showSubtitle]="false"
-></circle-progress>
-
-<circle-progress
-  [percent]="80"
-  [radius]="90"
-  [showUnits]="false"
-  [outerStrokeWidth]="16"
-  [innerStrokeWidth]="8"
-  [outerStrokeColor]="'blue'"
-  [innerStrokeColor]="'green'"
-  [animation]="true"
-  [animationDuration]="300"
-  [title]="'Inglés'"      
-  [titleFontSize]="'15'"
-  [titleColor]="'black'"
-  [showSubtitle]="false"
-></circle-progress>
-
-<circle-progress
-  [percent]="100"
-  [radius]="90"
-  [showUnits]="false"
-  [outerStrokeWidth]="16"
-  [innerStrokeWidth]="8"
-  [outerStrokeColor]="'#96305A'"
-  [innerStrokeColor]="'green'"
-  [animation]="true"
-  [animationDuration]="300"
-  [title]="'Carisma'"      
-  [titleFontSize]="'15'"
-  [titleColor]="'black'"
-  [showSubtitle]="false"
-></circle-progress>
+<div class="row rounded-5 allign-items" id="habilidades" >
+  <h2>Habilidades duras y blandas: </h2>
+  <div class="col" *ngFor="let skill of skills">
+    <ul>
+        <li>
+        <circle-progress
+          [percent]="skill.valorSkill"
+          [radius]="90"
+          [showUnits]="false"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'blue'"
+          [innerStrokeColor]="'green'"
+          [animation]="true"
+          [animationDuration]="500"
+          [title]="skill.nombreSkill"      
+          [titleFontSize]="'15'"
+          [titleColor]="'black'"
+          [showSubtitle]="false"
+          [imageSrc]="skill.imgSkill"
+          [imageHeight]="60"
+          [imageWidth]="60"
+        >
+      </circle-progress>
+    </li>
+  </ul>
   </div>
 
 </div>
