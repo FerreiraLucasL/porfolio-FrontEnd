@@ -1,4 +1,5 @@
 <div class="row rounded-5" id="educacion">
+<<<<<<< Updated upstream
     <div class="col-7">
         <h1> Educacion </h1> <br>
             <ul>   
@@ -25,3 +26,79 @@
             </ul>   
     </div>
 </div>    
+=======
+    <div class="col-12 ">
+        <h1>Educación : </h1>
+        <button type="button" class="btn btn-sucess" data-toggle="modal" data-target="#addEducationModal">
+            <a class="nav-link fa-solid fa-plus" style="color:green">
+            </a>
+        </button>
+        <br>
+    </div>
+    <div class="col-7" *ngFor="let edu of educations">
+        <ul>
+            <br>
+            <li>
+                <div class="col text-center">
+                    <a (click)="onOpenModal('edit', edu)" class="btn btn-primary tooltips fa fa-pencil"
+                        data-original-title="edit"> </a>
+
+                    <a (click)="onOpenModal('delete', edu)" class="btn btn-danger fa-solid fa-trash"
+                        data-original-title="delete"> </a>
+
+                </div>
+                <h3> {{edu.educacionNombre}}</h3>
+                <h4> {{edu.educacionLugar}}</h4>
+                <h5> Desde: {{edu.educacionAnios}} durante: {{edu.educacionTiempo}} </h5>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- modal añadir educacion-->
+<div class="modal fade" id="addEducationModal" tabindex="-1" role="dialog" aria-labelledby="addEducationModal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addEducationModalLabel">Agregar educación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
+                    <div class="form-group">
+                        <label for="educacionNombre">Nombre educación: </label>
+                        <input type="text" ngModel name="educacionNombre" class="form-control" id="educacionNombre" 
+                        placeholder="Nombre educación: " required>
+                    </div>
+                    <div class="form-group">
+                        <label for="educacionLugar">Lugar educación: </label>
+                        <input type="text" ngModel name="educacionLugar" class="form-control" id="educacionLugar" 
+                        placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="educacionFecha">Fecha de inicio educación: </label>
+                        <input type="text" ngModel name="educacionFecha" class="form-control" id="educacionFecha" 
+                        placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="educacionAnios">Duración de la educación: </label>
+                        <input type="text" ngModel name="educacionAnios" class="form-control" id="educacionAnios" 
+                        placeholder="" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="add-education-form" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                        <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
+                            Guardar
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> Stashed changes

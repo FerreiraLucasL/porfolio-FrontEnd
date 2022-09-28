@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+<<<<<<< Updated upstream
   production: false
+=======
+  production: false,
+  apiBaseUrl: 'https://portfoliolucasferreira.herokuapp.com/'
+>>>>>>> Stashed changes
 };
 
 /*
