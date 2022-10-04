@@ -4,6 +4,4 @@ export interface Education {
     educacionLugar: string;
     educacionTiempo: string;
     educacionAnios: string;
-
-
 }

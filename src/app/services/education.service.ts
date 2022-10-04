@@ -15,4 +15,14 @@ export class EducationService {
   public getEducations(): Observable<Education[]>{  
     return this.http.get<Education[]>(`${this.apiServerUrl}educacion/get`);    
   }
+  public addEducation(education: Education): Observable<Education>{
+    return this.http.post<Education>(`${this.apiServerUrl}educacion/create`,education)
+  }
+  public editEducation(education: Education): Observable<Education>{
+    return this.http.put<Education>(`${this.apiServerUrl}educacion/edit`,education)
+  }
+  public deleteEducation(educationId: number): Observable<void>{
+    return this.http.delete<void>(`${this.apiServerUrl}educacion/delete/${educationId}`);
+  }
+
 }

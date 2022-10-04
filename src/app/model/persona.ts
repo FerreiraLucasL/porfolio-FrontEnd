@@ -6,4 +6,5 @@ export interface persona {
     fechaNacimiento : string;
     img : string;    
     acerca : string;
+    banner : string;
 }

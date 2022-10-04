@@ -2,13 +2,14 @@
     <div class="row">
         <div class="col-md-3 "> </div>
         <div class="col-md-6 login-form-1">
-            <h3>Ingrese nombre de Usuario y contraseña</h3>
+            <h3>Ingrese nombre de usuario y contraseña</h3>
 
             <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
 
                 <div class="form-group">
                     <br>
-                    <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" placeholder="nombre de Usuario"  
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" 
+                    placeholder="nombre de Usuario"  
                     [(ngModel)]="nombreUsuario" required/>
                 </div>
 
@@ -20,13 +21,11 @@
 
                 <div class="form-group">
                     <br>
-                    <input type="submit" class="btnSubmit" value="Login" />
+                    <input type="submit" class="btnSubmit" value="aceptar" />
+                    <input type="" class="btn btn-secondary" value="cancelar" />
+
                 </div>
-
             </form>
-
-
         </div>
-
     </div>
-</div>
+</div> 
