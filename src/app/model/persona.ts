@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-export class Persona {
-    
-=======
 export interface persona {
     id? : number;
     nombreApellido : string;
@@ -11,5 +7,4 @@ export interface persona {
     img : string;    
     acerca : string;
     banner : string;
->>>>>>> Stashed changes
 }

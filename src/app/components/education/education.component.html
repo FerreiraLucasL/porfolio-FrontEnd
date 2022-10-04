@@ -1,36 +1,10 @@
 <div class="row rounded-5" id="educacion">
-<<<<<<< Updated upstream
-    <div class="col-7">
-        <h1> Educacion </h1> <br>
-            <ul>   
-                <li><h3> Curso de carpinteria</h3>                    
-                    <h4> Colegio Tecnico Nacional - Encarnacion Paraguay</h4>
-                    <h5> 60hs (2009) </h5>
-                </li>    <br>
-                <li><h3> Ingles en el mundo IT</h3>
-                    <h4> Polotic Silicon Misiones Argentina</h4>
-                    <h5> 30hs (2022) </h5>
-                </li>    <br>          
-                <li><h3> Bachiller Tecnico en informática</h3>
-                    <h4> Encarnacion Paraguay</h4>
-                    <h5> 3 años (2006) (2009)</h5>
-                </li>    <br>
-                <li><h3> Lic. en Electrónica - inconcluso</h3>
-                    <h4> UNI Encarnacion Paraguay</h4>
-                    <h5> 2 años (2010) (2012)</h5>
-                </li>    <br>
-                <li><h3> Analista de sistemas - inconcluso</h3>
-                    <h4> Ipesmi Misiones Argentina</h4>
-                    <h5> 3 años (2013) (2015)</h5>
-                </li>    <br>
-            </ul>   
-    </div>
-</div>    
-=======
-    <div class="col-12 ">
+    <div class="col-6 ">
         <h1>Educación : </h1>
+    </div>
+    <div class="col-6 ">
         <button type="button" class="btn btn-sucess" data-toggle="modal" data-target="#addEducationModal">
-            <a class="nav-link fa-solid fa-plus" style="color:green">
+            <a class="fa-solid fa-square-plus" style="color:green"  *ngIf="isLogged">
             </a>
         </button>
         <br>
@@ -41,15 +15,16 @@
             <li>
                 <div class="col text-center">
                     <a (click)="onOpenModal('edit', edu)" class="btn btn-primary tooltips fa fa-pencil"
-                        data-original-title="edit"> </a>
+                        data-original-title="edit" *ngIf="isLogged"> </a>
 
                     <a (click)="onOpenModal('delete', edu)" class="btn btn-danger fa-solid fa-trash"
-                        data-original-title="delete"> </a>
+                        data-original-title="delete" *ngIf="isLogged"> </a>
 
                 </div>
                 <h3> {{edu.educacionNombre}}</h3>
                 <h4> {{edu.educacionLugar}}</h4>
-                <h5> Desde: {{edu.educacionAnios}} durante: {{edu.educacionTiempo}} </h5>
+                <h5> Desde: {{edu.educacionAnios}} </h5>
+                <h5> Durante: {{edu.educacionTiempo}}</h5>
             </li>
         </ul>
     </div>
@@ -79,12 +54,12 @@
                     </div>
                     <div class="form-group">
                         <label for="educacionFecha">Fecha de inicio educación: </label>
-                        <input type="text" ngModel name="educacionFecha" class="form-control" id="educacionFecha" 
+                        <input type="text" ngModel name="educacionAnios" class="form-control" id="educacionAnios" 
                         placeholder="" required>
                     </div>
                     <div class="form-group">
                         <label for="educacionAnios">Duración de la educación: </label>
-                        <input type="text" ngModel name="educacionAnios" class="form-control" id="educacionAnios" 
+                        <input type="text" ngModel name="educacionTiempo" class="form-control" id="educacionTiempo" 
                         placeholder="" required>
                     </div>
                     <div class="modal-footer">
@@ -101,4 +76,3 @@
         </div>
     </div>
 </div>
->>>>>>> Stashed changes

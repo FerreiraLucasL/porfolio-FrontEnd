@@ -1,11 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
-=======
 import { NgForm } from '@angular/forms';
 import { Education } from 'src/app/model/education';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-education',
@@ -13,12 +11,7 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
-<<<<<<< Updated upstream
-
-  constructor() { }
-
-  ngOnInit(): void {
-=======
+  isLogged = false;
   public educations:Education[]=[]; 
   public editEducation:Education | undefined;
   public deleteEducation:Education | undefined;
@@ -27,6 +20,11 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEducations();  
+    if (this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
   public getEducations(): void {
     this.educationService.getEducations().subscribe({
@@ -37,9 +35,8 @@ export class EducationComponent implements OnInit {
       alert(error.message);
     }
     })
->>>>>>> Stashed changes
   }
-  // crud
+  // crud modal
   
   public onOpenModal(mode:string, education?: Education):void {
     const container=document.getElementById('main-container');
@@ -63,7 +60,6 @@ export class EducationComponent implements OnInit {
     document.getElementById('add-education-form')?.click();
     this.educationService.addEducation(addForm.value).subscribe({
       next: (response:Education) => {
-        console.log(response);
         this.getEducations();
         addForm.resetForm();
       },
@@ -91,7 +87,6 @@ export class EducationComponent implements OnInit {
   public onDeleteEducation(idEdu: number): void {
     this.educationService.deleteEducation(idEdu).subscribe({
       next: (response:void) => {
-        console.log(response);
         this.getEducations();
       },
       error: (error:HttpErrorResponse) =>{
@@ -99,7 +94,5 @@ export class EducationComponent implements OnInit {
       }
     })
   }
-
-
 
 }

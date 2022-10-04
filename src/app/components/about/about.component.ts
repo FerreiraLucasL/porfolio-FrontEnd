@@ -1,22 +1,30 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
-
+import { persona } from 'src/app/model/persona';
+import { PersonaService } from 'src/app/services/persona.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  miPortfolio:any;
-  constructor(private datosPorfolio:PortfolioService) { }
-    URL = 'http://localhost:8080/persona'
-  ngOnInit(): void {
+  public persona: persona | undefined;
+  public editPersona: persona | undefined;
+  constructor(private personaService: PersonaService) {}
 
-    this.datosPorfolio.obtenerDatos().subscribe(data=>{
-      this.miPortfolio=data;
-      });
 
+ngOnInit(): void {
+  this.getPersona();     
   }
-
-
+  
+public getPersona(): void {
+  this.personaService.getPersona().subscribe({
+    next: (response: persona) => {  
+      this.persona = response;
+    },
+    error: (error:HttpErrorResponse) => {
+      alert(error.message); 
+    }
+  })
+}
 }
