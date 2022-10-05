@@ -1,10 +1,10 @@
 <div class="row rounded-5" id="educacion">
-    <div class="col-6 ">
+    <div class="col-3 ">
         <h1>Educación : </h1>
     </div>
     <div class="col-6 ">
-        <button type="button" class="btn btn-sucess" data-toggle="modal" data-target="#addEducationModal">
-            <a class="fa-solid fa-square-plus" style="color:green"  *ngIf="isLogged">
+        <button type="button" class="btn btn-sucess" data-toggle="modal" data-target="#addEducationModal"> Agregar
+            <a class="fa-solid fa-square-plus" style="color:green"  *ngIf="isLogged"> 
             </a>
         </button>
         <br>
@@ -13,15 +13,17 @@
         <ul>
             <br>
             <li>
+                
+                <h3> {{edu.educacionNombre}}</h3>
                 <div class="col text-center">
+                    Editar  
                     <a (click)="onOpenModal('edit', edu)" class="btn btn-primary tooltips fa fa-pencil"
-                        data-original-title="edit" *ngIf="isLogged"> </a>
-
+                        data-original-title="edit" *ngIf="isLogged"></a>
+                    Borrar  
                     <a (click)="onOpenModal('delete', edu)" class="btn btn-danger fa-solid fa-trash"
-                        data-original-title="delete" *ngIf="isLogged"> </a>
+                        data-original-title="delete" *ngIf="isLogged"> Borrar </a>
 
                 </div>
-                <h3> {{edu.educacionNombre}}</h3>
                 <h4> {{edu.educacionLugar}}</h4>
                 <h5> Desde: {{edu.educacionAnios}} </h5>
                 <h5> Durante: {{edu.educacionTiempo}}</h5>

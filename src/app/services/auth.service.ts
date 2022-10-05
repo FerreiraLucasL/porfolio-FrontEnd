@@ -9,7 +9,7 @@ import { LoginUsuario } from '../model/login-usuario';
   providedIn: 'root'
 })
 export class AuthService {
-  authUrl = 'https://portfoliolucasferreira.web.app/auth/';
+  authUrl = 'http://localhost:8080/auth/';
   constructor(private httpClient: HttpClient) {   }
 
   public login(loginUsuario: LoginUsuario): Observable<JwtDto>{
