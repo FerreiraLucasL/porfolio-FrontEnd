@@ -1,80 +1,126 @@
 <div class="row rounded-5" id="educacion">
-    <div class="col-3 ">
-        <h1>Educación : </h1>
-    </div>
-    <div class="col-6 ">
-        <button type="button" class="btn btn-sucess" data-toggle="modal" data-target="#addEducationModal"> Agregar
-            <a class="fa-solid fa-square-plus" style="color:green"  *ngIf="isLogged"> 
-            </a>
-        </button>
+    <div class="col-8">
+        <h1>Educacion : </h1>
         <br>
     </div>
-    <div class="col-7" *ngFor="let edu of educations">
-        <ul>
-            <br>
-            <li>
-                
-                <h3> {{edu.educacionNombre}}</h3>
-                <div class="col text-center">
-                    Editar  
-                    <a (click)="onOpenModal('edit', edu)" class="btn btn-primary tooltips fa fa-pencil"
-                        data-original-title="edit" *ngIf="isLogged"></a>
-                    Borrar  
-                    <a (click)="onOpenModal('delete', edu)" class="btn btn-danger fa-solid fa-trash"
-                        data-original-title="delete" *ngIf="isLogged"> Borrar </a>
+    <div class="col-4">
+        <button class="btn btn-success" (click)="open(educationCreateModal)" *ngIf="isLogged">Agregar Educacion</button>
+    </div>
 
-                </div>
+    <div class="row" *ngFor="let edu of educations">
+        <ul>
+            <li>
+                <h3> {{edu.educacionNombre}}</h3>
                 <h4> {{edu.educacionLugar}}</h4>
-                <h5> Desde: {{edu.educacionAnios}} </h5>
-                <h5> Durante: {{edu.educacionTiempo}}</h5>
+                <h5> Desde: {{edu.educacionAnios}} durante: {{edu.educacionTiempo}} </h5>
+                <br>
             </li>
+            <button class="btn btn-primary" *ngIf="isLogged" (click)="openEdit(educationEditModal, edu)">Editar</button>
+            <button class="btn btn-danger" *ngIf="isLogged" (click)="openDelete(educationDeleteModal, edu)">Borrar</button>
         </ul>
     </div>
 </div>
 
-<!-- modal añadir educacion-->
-<div class="modal fade" id="addEducationModal" tabindex="-1" role="dialog" aria-labelledby="addEducationModal"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addEducationModalLabel">Agregar educación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                </button>
-            </div>
-            <div class="modal-body">
-                <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
-                    <div class="form-group">
-                        <label for="educacionNombre">Nombre educación: </label>
-                        <input type="text" ngModel name="educacionNombre" class="form-control" id="educacionNombre" 
-                        placeholder="Nombre educación: " required>
-                    </div>
-                    <div class="form-group">
-                        <label for="educacionLugar">Lugar educación: </label>
-                        <input type="text" ngModel name="educacionLugar" class="form-control" id="educacionLugar" 
-                        placeholder="" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="educacionFecha">Fecha de inicio educación: </label>
-                        <input type="text" ngModel name="educacionAnios" class="form-control" id="educacionAnios" 
-                        placeholder="" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="educacionAnios">Duración de la educación: </label>
-                        <input type="text" ngModel name="educacionTiempo" class="form-control" id="educacionTiempo" 
-                        placeholder="" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="add-education-form" class="btn btn-secondary" data-dismiss="modal">
-                            Cerrar
-                        </button>
-                        <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
-                            Guardar
-                        </button>
-                    </div>
 
-                </form>
-            </div>
-        </div>
+<!-- Modal agregar nuevo-->
+
+<ng-template #educationCreateModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Educacion</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-</div>
+    <div class="modal-body">
+        <form #agregar="ngForm" (ngSubmit)="onSubmitAgregar(agregar)" novalidate>
+            <div class="form-group">
+                <label for="educacionNombre">Nombre Educacion</label>
+                <div class="input-group">
+                    <input id="educacionNombre" class="form-control" name="educacionNombre" ngModel>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="educacionLugar">Lugar Educacion</label>
+                <div class="input-group">
+                    <input id="educacionLugar" class="form-control" name="educacionLugar" ngModel>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="educacionAnios">Años Educacion</label>
+                <div class="input-group">
+                    <input id="educacionAnios" class="form-control" name="educacionAnios" ngModel>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="educacionTiempo">Duración Educacion</label>
+                <div class="input-group">
+                    <input id="educacionTiempo" class="form-control" name="educacionTiempo" ngModel>
+                </div>
+            </div>
+            <div>
+                <button data-dismiss="modal" class="btn btn-info">Submit</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- Modal editar-->
+<ng-template #educationEditModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Educacion</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="editForm" novalidate>
+            <div class="form-group">
+                <label for="educacionNombre">Nombre Educacion</label>
+                <div class="input-group">
+                    <input id="educacionNombreEditar" class="form-control" formControlName="educacionNombre" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="educacionLugar">Lugar Educacion</label>
+                <div class="input-group">
+                    <input id="educacionLugarEditar" class="form-control" formControlName="educacionLugar" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="educacionAnios">Años Educacion</label>
+                <div class="input-group">
+                    <input id="educacionAniosEditar" class="form-control" formControlName="educacionAnios" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="educacionTiempo">Duración Educacion</label>
+                <div class="input-group">
+                    <input id="educacionTiempoEditar" class="form-control" formControlName="educacionTiempo" >
+                </div>
+            </div>
+            <div>
+                <button data-dismiss="modal" class="btn btn-info" (click)="onSave()" 
+                >Submit</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- Modal borrar-->
+<ng-template #educationDeleteModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Confirmar borrado  </h4> 
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4>Está seguro que desea borrar "{{eduBorrarNombre}}" ?</h4>            
+      
+      <b style="color: red">Esta operación es permanete</b>             
+    </div>
+    <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Borrar</button> 
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancelar</button>
+    </div>
+  </ng-template>

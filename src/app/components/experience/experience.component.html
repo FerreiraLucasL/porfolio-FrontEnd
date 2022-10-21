@@ -1,13 +1,126 @@
 <div class="row rounded-5" id="experiencia">
-    <h1>Experiencia Laboral: </h1> <br>
-    <div class="col-7" *ngFor="let exp of experiences">
+    <div class="col-8">
+        <h1>Experiencia Laboral: </h1>
+        <br>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-success" (click)="open(experienceCreateModal)" *ngIf="isLogged">Agregar Experiencia</button>
+    </div>
+
+    <div class="row" *ngFor="let exp of experiences">
         <ul>
-            <br>
             <li>
                 <h3> {{exp.experienciaNombre}}</h3>
                 <h4> {{exp.experienciaLugar}}</h4>
                 <h5> Desde: {{exp.experienciaAnios}} durante: {{exp.experienciaTiempo}} </h5>
+                <br>
             </li>
+            <button class="btn btn-primary" *ngIf="isLogged" (click)="openEdit(experienceEditModal, exp)">Editar</button>
+            <button class="btn btn-danger" *ngIf="isLogged" (click)="openDelete(experienceDeleteModal, exp)">Borrar</button>
         </ul>
     </div>
 </div>
+
+
+<!-- Modal agregar nuevo-->
+
+<ng-template #experienceCreateModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Experiencia Laboral</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #agregar="ngForm" (ngSubmit)="onSubmitAgregar(agregar)" novalidate>
+            <div class="form-group">
+                <label for="experienciaNombre">Nombre Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaNombre" class="form-control" name="experienciaNombre" ngModel>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="experienciaLugar">Lugar Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaLugar" class="form-control" name="experienciaLugar" ngModel>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="experienciaAnios">Años Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaAnios" class="form-control" name="experienciaAnios" ngModel>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="experienciaTiempo">Duración Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaTiempo" class="form-control" name="experienciaTiempo" ngModel>
+                </div>
+            </div>
+            <div>
+                <button data-dismiss="modal" class="btn btn-info">Submit</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- Modal editar-->
+<ng-template #experienceEditModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Experiencia Laboral</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="editForm" novalidate>
+            <div class="form-group">
+                <label for="experienciaNombre">Nombre Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaNombreEditar" class="form-control" formControlName="experienciaNombre" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="experienciaLugar">Lugar Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaLugarEditar" class="form-control" formControlName="experienciaLugar" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="experienciaAnios">Años Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaAniosEditar" class="form-control" formControlName="experienciaAnios" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="experienciaTiempo">Duración Experiencia</label>
+                <div class="input-group">
+                    <input id="experienciaTiempoEditar" class="form-control" formControlName="experienciaTiempo" >
+                </div>
+            </div>
+            <div>
+                <button data-dismiss="modal" class="btn btn-info" (click)="onSave()" 
+                >Submit</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<!-- Modal borrar-->
+<ng-template #experienceDeleteModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Confirmar borrado  </h4> 
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4>Está seguro que desea borrar "{{expBorrarNombre}}" ?</h4>            
+      
+      <b style="color: red">Esta operación es permanete</b>             
+    </div>
+    <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Borrar</button> 
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancelar</button>
+    </div>
+  </ng-template>

@@ -5,7 +5,6 @@
             <h3>Ingrese nombre de usuario y contraseña</h3>
 
             <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-
                 <div class="form-group">
                     <br>
                     <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" 
@@ -21,8 +20,8 @@
 
                 <div class="form-group">
                     <br>
-                    <input type="submit" class="btn btn-secondary" value="aceptar" />
-                    <input type="" class="btn btn-secondary" value="cancelar" />
+                    <input type="submit" class="btn btn-primary" value="aceptar" />
+                    <input type="dissmiss" class="btn btn-danger" value="cancelar" />
 
                 </div>
             </form>

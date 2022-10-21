@@ -1,4 +1,4 @@
 export const environment = {
   production: true,  
-  apiBaseUrl: 'https://portfoliolucasferreira.herokuapp.com/'
+  apiBaseUrl: 'http://localhost:8080/'
 };

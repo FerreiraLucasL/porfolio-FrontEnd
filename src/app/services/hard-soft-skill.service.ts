@@ -16,4 +16,6 @@ export class HardSoftSkillService {
   public getSkills(): Observable<HardSoftSkill[]>{  
     return this.http.get<HardSoftSkill[]>(`${this.apiServerUrl}hardsoftskill/get`);
   }
+
+  
 }

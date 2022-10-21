@@ -3,12 +3,14 @@
         <img src="../../../assets/Banner.png" class="img-fluid " alt="" id="banner">
     </div>
 </div>
-<div class="row rounded-5 allign-items" id="acercaDe">
-    <div class="col-2" *ngIf="persona">
+<div class="row rounded-5 allign-items" id="acercaDe">      
+    <div class="col-5" *ngIf="persona">
         <img src="{{persona.img}}" class="img-fluid rounded-circle" alt="" id="perfil">
     </div>
-    <div class="col-5" *ngIf="persona">
+    <div class="col-6">
         <h1>Acerca de: </h1>
+    </div>
+    <div class="col-5" *ngIf="persona">        
         <br>
         <h3> {{persona.nombreApellido}}</h3>
         <br>
@@ -16,7 +18,7 @@
     </div>
     <div class="col-5" *ngIf="persona">
         <br>
-        <h3> Lugar de Nacimiento: {{persona.lugarNacimiento}} </h3>
+        <h3>Lugar de Nacimiento: {{persona.lugarNacimiento}} </h3>
         <br>
         <h3>Fecha de Nacimiento: {{persona.fechaNacimiento}}</h3>
         <br>
