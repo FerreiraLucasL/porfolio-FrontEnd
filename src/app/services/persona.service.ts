@@ -17,7 +17,7 @@ export class PersonaService {
   }
 
   public editPersona(persona: persona): Observable<persona> {
-    return this.http.put<persona>(`${this.apiServerUrl}persona/edit`, persona);
+    return this.http.put<persona>(`${this.apiServerUrl}persona/edit/`, persona);
   }
 
 }

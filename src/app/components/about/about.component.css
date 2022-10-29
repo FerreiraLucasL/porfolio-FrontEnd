@@ -10,6 +10,13 @@
     margin: 10px;    
 }
 #perfil{
-    height: 200px;
-    width: 200px;    
+    height: 300px;
+    width: 300px;    
+}
+#editarPersona{
+    height: 30px;
+    width: 30px;    
+    color: green;
+    background-color: lightslategray;
+    
 }
