@@ -9,7 +9,7 @@ import { LoginUsuario } from '../model/login-usuario';
   providedIn: 'root'
 })
 export class AuthService {
-  authUrl = 'http://localhost:8080/auth/';
+  authUrl = 'https://static-ina-ferreiralucasl.koyeb.app/auth/';
   constructor(private httpClient: HttpClient) {   }
 
   public login(loginUsuario: LoginUsuario): Observable<JwtDto>{

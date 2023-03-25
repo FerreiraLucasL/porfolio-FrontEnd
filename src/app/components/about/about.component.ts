@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/services/persona.service';
 import { TokenService } from 'src/app/services/token.service';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-about',
@@ -26,6 +26,7 @@ export class AboutComponent implements OnInit {
 
 
 ngOnInit(): void {
+  console.log(this.persona);
   this.getPersona();     
   if (this.tokenService.getToken()){
     this.isLogged = true;

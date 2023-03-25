@@ -4,7 +4,7 @@ import { Experience } from 'src/app/model/experience';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { TokenService } from 'src/app/services/token.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-experience',

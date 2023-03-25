@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/model/education';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-education',

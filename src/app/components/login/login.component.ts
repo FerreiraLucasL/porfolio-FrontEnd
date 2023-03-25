@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginUsuario } from 'src/app/model/login-usuario';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { TokenService } from 'src/app/services/token.service';
-
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { LoginUsuario } from "src/app/model/login-usuario";
+import { AuthService } from "src/app/services/auth.service";
+import { TokenService } from "src/app/services/token.service";
 
 @Component({
   selector: 'app-login',
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     this.loginUsuario = new LoginUsuario (this.nombreUsuario, this.password);
-    this.authService.login(this.loginUsuario).subscribe(data =>{
+    this.authService.login(this.loginUsuario).subscribe((data: { token: string; nombreUsuario: string; authorities: string[]; }) =>{
       this.isLogged = true;
       this.isLoggedInFail =  false;
       this.tokenService.setToken(data.token);
@@ -39,13 +38,11 @@ export class LoginComponent implements OnInit {
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
       this.router.navigate([''])
-    }, err=>{
+    }, (err: { error: { mensaje: string; }; })=>{
       this.isLogged = false;
       this.isLoggedInFail = true;
       this.errMsj = err.error.mensaje;
       console.log(this.errMsj);
     })
   }
-
-
 }
