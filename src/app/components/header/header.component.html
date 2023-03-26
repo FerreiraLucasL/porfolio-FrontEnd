@@ -1,12 +1,13 @@
-<div class="row " id="header" >
+<div class="row " id="header">
     <div class="col-3">
-        <img src="../../../assets/LogoAP.png"  class="img-fluid float-start" alt="" id="logoap">
-    </div>                
-    <div class="col-9">    
-        <button type="button" class="btn btn-outline-light float-end"(click)="login()" *ngIf="!isLogged">Iniciar Sesión</button>
-        <button type="button" class="btn btn-outline-light float-end"(click)="onLogOut()" *ngIf="isLogged">Cerrar Sesión</button>
-        <a href="https://github.com/FerreiraLucasL" class="float-end"> <i class="fa-brands fa-github" id="enlaces"></i></a>"
-        <a href="https://www.linkedin.com/in/lucas-leandro-ferreira-gassmann-292099226/" class="float-end"> <i class="fa-brands fa-linkedin" id="enlaces"></i></a>"        
-        <a href="https://wa.me/5493764332569" class="float-end"> <i class="fa-brands fa-whatsapp" id="enlaces"></i></a>"        
+        <img src="../../../assets/LogoAP.png" class="img-fluid float-start" alt="" id="logoap">
+    </div>
+
+    <div class="col-9">        
+        <button type="button" class="btn btn-outline-light float-end" (click)="login()" 
+        *ngIf="!isLogged">Iniciar Sesión</button>
+        <button type="button" class="btn btn-outline-light float-end" (click)="onLogOut()"
+         *ngIf="isLogged">Cerrar
+            Sesión</button>
     </div>
 </div>

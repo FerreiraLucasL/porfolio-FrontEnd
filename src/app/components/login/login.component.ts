@@ -4,6 +4,7 @@ import { LoginUsuario } from "src/app/model/login-usuario";
 import { AuthService } from "src/app/services/auth.service";
 import { TokenService } from "src/app/services/token.service";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     this.loginUsuario = new LoginUsuario (this.nombreUsuario, this.password);
-    this.authService.login(this.loginUsuario).subscribe((data: { token: string; nombreUsuario: string; authorities: string[]; }) =>{
+    this.authService.login(this.loginUsuario).subscribe(data =>{     
       this.isLogged = true;
       this.isLoggedInFail =  false;
       this.tokenService.setToken(data.token);
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
       this.router.navigate([''])
-    }, (err: { error: { mensaje: string; }; })=>{
+    }, err=>{
       this.isLogged = false;
       this.isLoggedInFail = true;
       this.errMsj = err.error.mensaje;

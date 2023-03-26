@@ -1,16 +1,13 @@
 <div class="row">
     <div class="col-12">
-        <img src="{{persona?.banner}}" class="img-fluid " alt="" id="banner">
+        <img src="../../../assets/Banner.png" class="img-fluid " alt="" id="banner">
     </div>
 </div>
 <div class="row rounded-5 allign-items" id="acercaDe">
    
-    <div class="row">
-        <div class="col-5" *ngIf="persona">
-            <img src="{{persona.img}}" class="img-fluid rounded-circle" alt="" id="perfil">
-        </div>
-        <div class="col-4">
-            <h1>Acerca de: </h1>
+    <div class="row">        
+        <div class="col-5">
+            <p class="titulo">Acerca De : </p>
             <div class="row">
                 <div class="col" *ngIf="persona">
                     <br>
@@ -28,15 +25,18 @@
                 </div>
             </div>            
         </div>
-        <div class="col-3">
+        <div class="col-2">
             <button class="btn btn-success" *ngIf="isLogged"
                 (click)="openEdit(personaEditModal, persona!)">Editar</button>
         </div>
-
+        <div class="col-4" *ngIf="persona">
+            <img src="../../../assets/perfil.jpg" class="img-fluid rounded-circle" alt="" id="perfil">
+        </div>
+        
     </div>
     
     <div class="row">      
-        <div class="col-5" *ngIf="persona">
+        <div class="col-5" *ngIf="persona" id="imgPerfil">
             <br>
             <h4>Sobre mi: </h4>
             <span> <h5>{{persona.acerca}} </h5></span>

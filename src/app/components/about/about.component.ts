@@ -26,7 +26,6 @@ export class AboutComponent implements OnInit {
 
 
 ngOnInit(): void {
-  console.log(this.persona);
   this.getPersona();     
   if (this.tokenService.getToken()){
     this.isLogged = true;
@@ -76,7 +75,6 @@ openEdit(targetModal: any, pers: persona) {
 
 //funcion guardar cambios modalEditar
 onSave() {  
-  console.log(this.editForm.value);  
   this.personaService.editPersona(this.editForm.value).subscribe({
     next: (response: persona) => {
       this.ngOnInit();

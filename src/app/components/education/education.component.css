@@ -1,7 +1,7 @@
 #educacion{
-    background-color: lightslategray;
-    padding: 20px;    
-    border-color: black;
-    border-width: 10px;
+    background-color: white;
+    padding: 20px;      
     margin: 10px;    
+    border-color: black;
+    border-style: solid;
 }
